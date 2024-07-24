@@ -6,7 +6,7 @@ app.get
     function(req, res)
     {
         var absolutePath = __dirname + '/views/index.html';
-        res.sendFile('/views/index.html');
+        res.sendFile(absolutePath);
     }
 );
 
