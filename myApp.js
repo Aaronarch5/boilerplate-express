@@ -2,12 +2,19 @@ let express = require('express');
 let app = express();
 
 /*
-Se utiliza para mantener los archivos CSS,JS,estaticos.
-
-express.static(__dirname + /path)
-
-Donde public será la carpeta donde se encuentre en este caso la hoja de estilos. 
+Aunque un servidor HTML sirve HTML, una API sirve datos. 
+Una API REST (Transferencia de Estado Representacional) permite el intercambio de datos de manera simple, 
+sin que los clientes necesiten conocer ningún detalle sobre el servidor. 
+El cliente solo necesita saber dónde está el recurso (la URL) y la acción que desea realizar sobre él (el verbo). 
+El verbo GET se usa cuando estás obteniendo información sin modificar nada. Hoy en día, el formato de datos preferido para mover información en la web es JSON. 
+En pocas palabras, JSON es una forma conveniente de representar un objeto JavaScript como una cadena, 
+para que pueda transmitirse fácilmente.
 */
+
+app.get('/json', function(req, res) {
+    res.json({"message": "Hello json"});
+  });
+
 
 app.use('/public', express.static(__dirname + '/public'));
 
