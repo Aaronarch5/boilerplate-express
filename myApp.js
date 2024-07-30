@@ -11,9 +11,14 @@ En pocas palabras, JSON es una forma conveniente de representar un objeto JavaSc
 para que pueda transmitirse fácilmente.
 */
 
-app.get('/json', function(req, res) {
-    res.json({"message": "Hello json"});
+app.get('/json', (req, res) => {
+    let message = "Hello json";
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
+      message = message.toUpperCase();
+    }
+    res.json({ message });
   });
+  
 
 
 app.use('/public', express.static(__dirname + '/public'));
